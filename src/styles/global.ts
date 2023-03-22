@@ -11,10 +11,18 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body, input, button {
+    body, input, button, label {
         font-family: 'Titillium Web', sans-serif;
         font-weight: 400;
         font-size: 1.6rem;
-        line-height: 2.4rem;
+    }
+
+    a {
+        color: ${(props) => props.theme.purple};
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `
