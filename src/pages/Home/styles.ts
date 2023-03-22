@@ -11,6 +11,15 @@ export const Container = styled.main`
   justify-content: center;
 
   background-color: inherit;
+
+  @media (min-width: 416px) {
+    max-width: 416px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 832px) {
+    flex-grow: 1;
+  }
 `
 
 export const LoginWrapper = styled.section`
