@@ -17,6 +17,15 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
     }
 
+    #root, body {
+        min-height: 100vh;
+        min-width: 28rem;
+
+        overflow: auto;
+
+        background-color: ${(props) => props.theme['gray-50']};
+    }
+
     a {
         color: ${(props) => props.theme['purple-700']};
         text-decoration: none;
