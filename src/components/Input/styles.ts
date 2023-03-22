@@ -14,7 +14,10 @@ export const InputWrapper = styled.div<InputWrapperProps>`
   padding: 1.6rem 1.2rem;
 
   border: 1px solid
-    ${(props) => (props.error ? props.theme.error : props.theme['gray-200'])};
+    ${(props) =>
+      props.error
+        ? `${props.theme.error} !important`
+        : props.theme['gray-200']};
   border-radius: 4px;
 
   display: flex;
@@ -52,8 +55,7 @@ export const InputWrapper = styled.div<InputWrapperProps>`
 
   &:hover,
   &:focus-within {
-    border-color: ${(props) =>
-      props.error ? props.theme.error : props.theme['purple-700']};
+    border-color: ${(props) => props.theme['purple-700']};
   }
 `
 
