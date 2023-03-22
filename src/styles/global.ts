@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: ${(props) => props.theme.purple};
+        color: ${(props) => props.theme['purple-700']};
         text-decoration: none;
 
         &:hover {

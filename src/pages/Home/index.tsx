@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Container } from './styles'
 
@@ -16,6 +17,7 @@ export function Home() {
         placeholder="Digite sua senha"
         required
       />
+      <Button label="Entrar" />
     </Container>
   )
 }

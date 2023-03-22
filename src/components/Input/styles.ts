@@ -50,7 +50,7 @@ export const InputWrapper = styled.div<InputWrapperProps>`
 
   &:hover,
   &:focus-within {
-    border-color: ${(props) => props.theme.purple};
+    border-color: ${(props) => props.theme['purple-700']};
   }
 `
 
