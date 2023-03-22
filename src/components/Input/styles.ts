@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface InputWrapperProps {
   disabled?: boolean
+  error: boolean
 }
 
 export const Container = styled.div`
@@ -12,7 +13,8 @@ export const InputWrapper = styled.div<InputWrapperProps>`
   width: 100%;
   padding: 1.6rem 1.2rem;
 
-  border: 1px solid ${(props) => props.theme['gray-200']};
+  border: 1px solid
+    ${(props) => (props.error ? props.theme.error : props.theme['gray-200'])};
   border-radius: 4px;
 
   display: flex;
@@ -50,7 +52,8 @@ export const InputWrapper = styled.div<InputWrapperProps>`
 
   &:hover,
   &:focus-within {
-    border-color: ${(props) => props.theme['purple-700']};
+    border-color: ${(props) =>
+      props.error ? props.theme.error : props.theme['purple-700']};
   }
 `
 
@@ -69,4 +72,9 @@ export const LabelWrapper = styled.div`
     font-weight: 600;
     font-size: 1.4rem;
   }
+`
+
+export const InvalidMessage = styled.span`
+  font-size: 1.4rem;
+  color: ${(props) => props.theme.error};
 `

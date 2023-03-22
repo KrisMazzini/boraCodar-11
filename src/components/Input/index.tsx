@@ -1,14 +1,18 @@
 import { InputHTMLAttributes, useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 import { Eye, EyeSlash } from 'phosphor-react'
 
-import { Container, InputWrapper, LabelWrapper } from './styles'
+import { Container, InputWrapper, InvalidMessage, LabelWrapper } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
+  name: string
+  error: string | undefined
 }
 
-export function Input({ label, type, ...inputProps }: InputProps) {
+export function Input({ label, type, name, error, ...inputProps }: InputProps) {
   const [hidden, setHidden] = useState(true)
+  const { register } = useFormContext()
 
   const actualType = obtainInputActualType()
   const recoverPassword = <a href="#">Esqueceu a senha?</a>
@@ -34,13 +38,19 @@ export function Input({ label, type, ...inputProps }: InputProps) {
   return (
     <Container>
       <LabelWrapper>
-        <label htmlFor={type}>{label}</label>
+        <label htmlFor={name}>{label}</label>
         {type === 'password' ? recoverPassword : <></>}
       </LabelWrapper>
-      <InputWrapper>
-        <input type={actualType} {...inputProps} id={type} />
+      <InputWrapper error={!!error}>
+        <input
+          type={actualType}
+          id={name}
+          {...inputProps}
+          {...register(name)}
+        />
         {type === 'password' ? Icon : <></>}
       </InputWrapper>
+      {error && <InvalidMessage>{error}</InvalidMessage>}
     </Container>
   )
 }
